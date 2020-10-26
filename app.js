@@ -104,5 +104,15 @@ app.use(function (err, req, res, next) {
 module.exports = app;
 
 app.listen(1453, '0.0.0.0', function () {
+  console.log(' ');
   console.log('Server Started');
+  console.log('You can reach it on this adresses');
+  console.log(' ');
+  console.log('localhost:1453');
+  console.log('127.0.0.1:1453');
+  console.log(' ');
+  console.log('Default user for web application is');
+  console.log('Username: ahmet');
+  console.log('Password: said');
+  console.log(' ');
 });
