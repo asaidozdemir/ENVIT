@@ -81,8 +81,8 @@ Gerekli Tablolar
 
   Şuanda kullanıcı olarak:
 
-  Kullanıcı adı: ITman
-  Şifre: Kernel1070
+    Kullanıcı adı: ITman
+    Şifre: Kernel1070
 
   kullanılmaktadır. Eğer bu kullanıcı adı veya şifre değiştirilmek istenirse, tüm .js uzantılı dosyalardaki MySQL connection kısımlarının Kullanıcı adı ve Şifre bölümleri de değiştirilmelidir.
 
@@ -93,25 +93,25 @@ Gerekli Tablolar
 
   Önceki 2 adım halledildikten sonra Komut istemcisinden (CMD) uygulamanın kurulu olduğu konuma gelinip:
 
-  npm install
+    npm install
 
   Komutu girilmelidir. Bu komut sayesinde gerekli tüm modüller otomatik olarak yüklenecektir.
   Eğer herşey doğru olarak yapıldıysa
 
-  node app.js
+    node app.js
 
   Komutu ile uygulama başlatılır.
   Daha sağlıklı olan başlatma şekli ise
 
-  pm2 start app.js
+    pm2 start app.js
 
   Komutudur. Bu komut sayesinde Komut istemcisi (CMD) kapatılsa veya bir hata ile karşılaşılsa bile program kendini tekrar başlatabilir.
 
   !!
   Varsayılan Kullanıcı
 
-  Username: admin
-  Password: taek
+    Username: admin
+    Password: taek
   !!
 
   **//Ekstra//**
@@ -119,11 +119,11 @@ Gerekli Tablolar
 
     pm2 list 
     
-    ve
+   ve
 
     pm2 monit
 
-    konutları kullanılarak sistemle ilgili daha detaylı bilgi alınabilir
+   konutları kullanılarak sistemle ilgili daha detaylı bilgi alınabilir
 
   **//Durdurma//**
 
@@ -158,8 +158,8 @@ Gerekli Tablolar
   !!
   Varsayılan Kullanıcı
 
-  Username: admin
-  Password: taek
+    Username: admin
+    Password: taek
 
   Bu kullanıcı ilk defa kurulduğunda gelir, sonradan deaktif edilebilir. İlk girişin yapılması için gerekir.
   !!
@@ -173,7 +173,13 @@ Gerekli Tablolar
 
   Admin, bir işlem yapmak için adres çubuğuna /adminpanel yazmalıdır.
 
-  http://192.168.0.31:1453/adminpanel veya http://envit.taek.gov.tr/adminpanel gibi.
+    http://192.168.0.31:1453/adminpanel
+   
+   veya
+   
+     localhost:1453
+   
+   gibi.
 
    ***//Kullanıcı Ekleme//***
 
@@ -189,18 +195,18 @@ Gerekli Tablolar
   Eğer yeni bir kampüs eklemek gerekir ise it/express/public/javascripts/campuslists.js dosyasının içerisine eklenmelidir.
   Eklenen bu kampüsün  it/express/views/ klasöründeki:
 
-  listupdate.pug
-  useradd.pug
-  userupdate.pug
-  depotgive.pug
+    listupdate.pug
+    useradd.pug
+    userupdate.pug
+    depotgive.pug
 
   dosyalarındaki:
 
-  " select#campus(name='campus' required) "
+    " select#campus(name='campus' required) "
 
   satırlarının altına 
   
-  option(value='Yenikampüs') Yenikampüs
+    option(value='Yenikampüs') Yenikampüs
 
   olarak eklenmesi gerekir. Aksi takdirde kullanıcıya gönderilen HTML formlarında bu kampüs görünmeyecektir.
 
