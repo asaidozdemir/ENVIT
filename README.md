@@ -18,7 +18,7 @@
                                                        
 
 
-Bu program Ahmet Said ÖZDEMİR tarafından hazırlanmıştır.
+Bu program Ankara Üniversitesi Bilgisayar Mühendisliği (%100 İngilizce) 4. Sınıf 17290114 numaralı öğrencisi olan Ahmet Said ÖZDEMİR tarafından hazırlanmıştır.
 
 
 
