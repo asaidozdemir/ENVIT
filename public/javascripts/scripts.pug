@@ -1,0 +1,129 @@
+head
+  script.
+    function goBack() {
+      window.history.back();
+    }
+
+  script.
+    var count=0;
+    var min = 1;
+    var max = 0;
+
+  script.
+    function getType(a)
+    {
+      count = a;
+    }
+
+  script.
+    function reply_click(r)
+    {
+      var i = r.parentNode.parentNode.rowIndex;
+      var k = document.getElementById("liste").rows[i].cells[0].innerHTML;
+      document.getElementById('hiddenField').value = k;
+      document.getElementById("hiddenForm").submit();
+    }
+
+  script.
+    function reply_click2(r)
+    {
+      var i = r.parentNode.parentNode.rowIndex;
+      if((document.getElementById("liste").rows[i].cells[4].innerHTML)>0)
+      {
+        var k = document.getElementById("liste").rows[i].cells[0].innerHTML;
+        document.getElementById('hiddenFieldGive').value = k;
+        document.getElementById("hiddenFormGive").submit();
+      }
+      else
+      {
+        alert("Yeterli Malzeme Yok...")
+      }
+    }
+
+  script.
+    function getsort(ths)
+    {
+      document.getElementById('orderField').value = ths;
+      document.getElementById("orderForm").submit();
+    }
+
+  script.
+    function Listadd(ths)
+    {
+      document.getElementById('ListaddField').value = ths;
+      document.getElementById("ListaddForm").submit();
+    }
+
+  script.
+    function Depotadd(ths)
+    {
+      document.getElementById('DepotaddField').value = ths;
+      document.getElementById("DepotaddForm").submit();
+    }
+
+  script.
+    function filter()
+    {
+      document.getElementById("page").value = 1;
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput1");
+      document.getElementById("page").style.display ="none";
+
+      filter = input.value.toUpperCase();
+      table = document.getElementById("liste");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++)
+        {
+          td = tr[i].getElementsByTagName("td")[count];
+          if (td)
+          {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1)
+            {
+              tr[i].style.display = "";
+            }
+            else
+            {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+    }
+
+  script.
+    function ppre()
+    {
+      var chval = document.getElementById("page").value;
+      chval--;
+      if(chval){
+        document.getElementById("page").value = chval;
+        paging(chval);
+      }
+    }
+
+  script.
+    function pnxt()
+    {
+      var chval = document.getElementById("page").value;
+      chval++;
+      if(chval<max+1){
+        document.getElementById("page").value = chval;
+        paging(chval);
+      }
+    }
+
+  script.
+    function paging(num) {
+      num--;
+      var table = document.getElementById("liste");
+      var rows = table.rows;
+      var q = (num*20)+1
+      for(var all = 1; all < rows.length ; all++)
+      {
+        table.rows[all].style.display='none';
+      }
+      for(var ff=q+20; q < ff ; q++)
+      {
+        table.rows[q].style.display='table-row';
+      }
+    }
