@@ -1,0 +1,40 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  meta(base href="/")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+  title Taek IT Envanter Sistemi
+  script.
+    window.onload = function() {
+      var q = document.getElementById('m1').innerHTML;
+      if (q == "Kullanıcı Adı veya Şifre Hatalı"){
+        document.getElementById("htmsg1").style.display = "block";
+        document.getElementById("m1").style.display = "block";
+        }
+    }
+
+//------------------------------------------------------------------------------------------------------------------------
+body
+  div(id="Head-Title")
+    h1 TAEK IT Envanter Sistemi
+    a(href="/")
+      img(id="logoimage" src="/images/logo.png")
+
+  form(id="new" method='post' action='/main')
+    input(type='text' name='userid' required autofocus placeholder=" Username... ")
+    br
+    br
+    input(type='password' name='pswrd' required placeholder=" Password... ")
+    br
+    br
+    input(type='submit' value='Submit')
+
+  div(id="htmsg1" onclick="this.style.display='none';")
+    p(id="m1") #{hata}
+
+  div(id="foot")
+    a(href='/about') About
+    p Türkiye Atom Enerjisi Kurumu 2020 ©

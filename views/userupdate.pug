@@ -1,0 +1,73 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  title Taek IT Envanter Sistemi
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+
+  include ../public/javascripts/scripts.pug
+
+  script.
+    window.onload = function() {
+    var ques = document.getElementById('TxT').innerHTML;
+    var ant = ques.substring(3, ques.length - 4);
+    var ent = JSON.parse(ant);
+    document.getElementById('log').newuser.value = ent.username;
+    document.getElementById('log').pswrd.value = ent.password;
+    document.getElementById('log').email.value = ent.email;
+    document.getElementById('log').role.value = ent.role;
+    document.getElementById('log').campus.value = ent.campus;
+    if(ent.active==1){
+      document.getElementById('log').active.checked = true;
+      }
+    }
+
+//------------------------------------------------------------------------------------------------------------------------
+body
+  include navbar.pug
+
+  h1(id="mainhead2") Kullanıcı Güncelleme Formu
+
+  form(id="log" method='post' action='/userupdater')
+    input(type='text' name='newuser' placeholder=" Username... " readonly disabled)
+    br
+    br
+    input(type='password' name='pswrd' placeholder=" Password... " required autocomplete="off")
+    br
+    br
+    input(type='email' name='email' placeholder=" Mail... " required autocomplete="off")
+    br
+    br
+    label(for='Rol') Kullanıcı Rolü
+    br
+    select#role(name='role' required)
+      option(disabled='' selected='' value='')  ----- 
+      option(value='Admin') Admin
+      option(value='User') User
+      option(value='Campus') Campus
+      option(value='Guest') Guest
+    br
+    br
+    label(for='campus') Yerleşke
+    br
+    select#campus(name='campus' required)
+      option(disabled='' selected='' value='')  ----- 
+      option(value='Başkanlık') Başkanlık
+      option(value='Beşevler') Beşevler
+      option(value='Saray') Saray
+      option(value='Küçükçekmece') Küçükçekmece
+    br
+    br
+    label(for='active') Aktif : 
+    input(type='checkbox' name='active'  value=1 )
+    br
+    br
+    input(type='submit' value='Submit')
+
+  div(id="TxT")
+    p #{testObj}   
+
+  include ../public/javascripts/forms.pug
+div(id="foot")
+  p Türkiye Atom Enerjisi Kurumu 2020 ©

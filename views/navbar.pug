@@ -1,0 +1,59 @@
+﻿body
+  nav
+    ul.nav-menu.nav-center
+      li(id="goback" style='float:left')
+        a(id="goimage" onclick="goBack()") 
+          img(src="/images/back.png")
+      li(style='float:left')
+        a(href='/') Anasayfa
+      li(style='float:left')
+        a(href='/depot') Depo
+        ul
+          li
+            a Network
+            ul
+              li
+                a(onclick="Depotadd('Sunucu')") Sunucu
+              li
+                a(onclick="Depotadd('Switch')") Switch
+              li
+                a(onclick="Depotadd('Yazıcı')") Yazıcı
+              li
+                a(onclick="Depotadd('Tarayıcı')") Tarayıcı
+              li
+                a(onclick="Depotadd('Polycom')") Polycom
+          li
+            a Bilgisayar
+            ul
+              li
+                a(onclick="Depotadd('Bilgisayar')") Bilgisayar
+              li
+                a(onclick="Depotadd('Dizüstü Bilgisayar')") Dizüstü Bilgisayar
+              li
+                a(onclick="Depotadd('Tablet')") Tablet
+              li
+                a(onclick="Depotadd('Monitor')") Monitor
+              li
+                a(onclick="Depotadd('Projeksiyon')") Projeksiyon
+              li
+                a(onclick="Depotadd('Lisans')") Lisans
+          li
+            a Sarf Malzemesi
+            ul
+              li
+                a(onclick="Depotadd('Fare')") Fare
+              li
+                a(onclick="Depotadd('Klavye')") Klavye
+              li
+                a(onclick="Depotadd('USB Bellek')") USB Bellek
+          li
+            a Diğer
+            ul
+              li
+                a(onclick="Depotadd('Lisans')") Lisans
+      li(style='float:left')
+        a(href='/list') Kullanımdaki Malzeme
+      li(style='float:right')
+        a(href='/logout') Çıkış
+      li(style='float:right')
+        a(href='/about') Hakkında

@@ -1,0 +1,106 @@
+-//doctype html
+
+head
+  meta(charset='utf-8')
+  meta(base href="/")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+  title Taek IT Envanter Sistemi
+
+  include ../public/javascripts/scripts.pug
+  include ../public/javascripts/down.html
+
+  script.
+    window.onload = function() {
+      var table = document.getElementById("liste");
+      var rows = table.rows;
+      for(var q = 21; q < rows.length ; q++)
+      {
+        table.rows[q].style.display='none';
+      }
+
+      var rem = (rows.length-1)%20
+
+      if(rem) {max = Math.floor(((rows.length-1)/20)+1);}
+      else {max = Math.floor(((rows.length-1)/20));}
+
+      //alert("min " +min+", max "+max);
+
+      var select = document.getElementById('page');
+
+      for (var pg = min; pg<=max; pg++)
+      {
+        var opt = document.createElement('option');
+        opt.value = pg;
+        opt.innerHTML = pg;
+        select.appendChild(opt);
+      }
+    }
+
+//------------------------------------------------------------------------------------------------------------------------
+body
+  include navbar.pug
+
+  h1(id="mainhead2") Admin Paneli
+
+  div(class='parent')
+    div(class='row0')
+    div(class='row1')
+      a(href='/useradd')
+        button(id="middle-container" ) Kullanıcı Ekle
+    div(class='row2')
+    div(class='row3')
+      select( id='arama1' onchange="getType(this.value)" )
+        option(value='0') Kullanıcı Adı
+        option(value='2') Mail
+        option(value='3') Rol
+        option(value='4') Yerleşke
+        option(value='5') Aktif
+    div(class='row4')
+      input(type='text', id='myInput1', onkeyup='filter()', placeholder='Arama...', title='Aranacak kelime...')
+    div(class='row5')
+
+  table(id="liste")
+    tr
+      th(onclick='getsort("Username")') Kullanıcı Adı
+      th(onclick='getsort("Password")') Şifre
+      th(onclick='getsort("Mail")') Mail
+      th(onclick='getsort("Role")') Rol
+      th(onclick='getsort("Campus")') Yerleşke
+      th(onclick='getsort("active")') Aktif
+      th İşlem
+    tbody
+      - var i=0;
+      each person in personList
+        tr
+          td #{person.Username}
+          td #{person.Password}
+          td #{person.Mail}
+          td #{person.Role}
+          td #{person.Campus}
+          td #{person.active}
+          td(style="width: 32px")
+            button(type="button" class="mnewbutton" id=("myBtn"+ i++) onclick="reply_click(this)")
+              img(src="/images/edit.png", style='width:32px;height:32px;')
+
+  div(class='pageall')
+    div(class='pages0')
+        button(type="button" id="pageprev" onclick="ppre()")
+          img(src="/images/pageprevious.png", style='width:48px;height:32px;')
+    div(class='pages1')
+      select( id='page' onchange="paging(this.value)" )
+    div(class='pages2')
+        button(type="button" id="pagenext" onclick="pnxt()")
+          img(src="/images/pagenext.png", style='width:48px;height:32px;')
+
+
+  include ../public/javascripts/forms.pug
+  div(id="foot")
+    p Türkiye Atom Enerjisi Kurumu 2020 ©
+
+  form(id="hiddenForm" method="post" action="/userupdate")
+    input(type='hidden' id= 'hiddenField' name='identify' value='')
+
+  form(id="orderForm" method="post" action="/userorder")
+    input(type='hidden' id= 'orderField' name='orderinfo' value='')

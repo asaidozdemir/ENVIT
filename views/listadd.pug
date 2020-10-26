@@ -1,0 +1,84 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  title Taek IT Envanter Sistemi
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+
+  include ../public/javascripts/scripts.pug
+
+  script.
+    window.onload = function() {
+      var date = new Date();
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      if (month < 10) month = "0" + month;
+      if (day < 10) day = "0" + day;
+      var today = year + "-" + month + "-" + day;
+      //alert(today);
+      document.getElementById('log').Date.value = today;
+      document.getElementById('log').garanti_start.value = today;
+      document.getElementById('log').garanti_end.value = today;
+
+      var ques = document.getElementById('TxT').innerHTML;
+      var ant = ques.substring(3, ques.length - 4);
+      if(ant)
+      {
+        var ent = JSON.parse(ant);
+        document.getElementById('log').pType.value = ent.pType;
+      }
+    }
+//------------------------------------------------------------------------------------------------------------------------
+body
+  include navbar.pug
+
+  h1(id="mainhead2")  Teslim ? Bu sayfa Kullanıma kapatılacak
+
+  form(id="log" method='post' action='/listaddr')
+    input(type='text' name='pType' placeholder=" Türü... " required readonly)
+    br
+    br
+    input(type='text' name='pName' placeholder=" Model... " required)
+    br
+    br
+    input(type='text' name='pBrand' placeholder=" Marka... " required)
+    br
+    br
+    input(type='text' name='responsible' placeholder=" Teslim Edilen... " required)
+    br
+    br
+    input(type='date' name='Date' placeholder=" Tarih... " min="1900-01-01" max="2999-12-31" required)
+    br
+    br
+    textarea(type='text' name='Detail' placeholder=" Detay... ")
+    br
+    br
+    input(type='date' name='garanti_start' placeholder=" Garanti Başlama... " min="1900-01-01" max="2999-12-31" required)
+    br
+    br
+    input(type='date' name='garanti_end' placeholder=" Garanti Bitiş... " min="1900-01-01" max="2999-12-31" required)
+    br
+    br
+    input(type='text' name='unit' placeholder=" Birim... " required)
+    br
+    br
+    label(for='campus') Yerleşke
+    br
+    select#campus(name='campus' required)
+      option(disabled='' selected='' value='')  ----- 
+      option(value='Başkanlık') Başkanlık
+      option(value='Beşevler') Beşevler
+      option(value='Saray') Saray
+      option(value='Küçükçekmece') Küçükçekmece
+    br
+    br
+    input(type='submit' value='Submit')
+
+  div(id="TxT")
+    p #{testObj}
+
+  include ../public/javascripts/forms.pug
+div(id="foot")
+  p Türkiye Atom Enerjisi Kurumu 2020 ©

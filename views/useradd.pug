@@ -1,0 +1,51 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  title Taek IT Envanter Sistemi
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+
+  include ../public/javascripts/scripts.pug
+
+//------------------------------------------------------------------------------------------------------------------------
+body
+  include navbar.pug
+
+  h1(id="mainhead2")  Sisteme Kullanıcı Ekleme Formu
+
+  form(id="log" method='post' action='/useraddr')
+    input(type='text' name='newuser' placeholder=" Username... " required autocomplete="off")
+    br
+    br
+    input(type='new-password' name='pswrd' placeholder=" Password... " required autocomplete="off")
+    br
+    br
+    input(type='email' name='email' placeholder=" Mail... " required autocomplete="off")
+    br
+    br
+    label(for='role') Kullanıcı Rolü
+    br
+    select#role(name='role' required)
+      option(disabled='' selected='' value='')  ----- 
+      option(value='Admin') Admin
+      option(value='User') User
+      option(value='Campus') Campus
+      option(value='Guest') Guest
+    br
+    br
+    label(for='campus') Yerleşke
+    br
+    select#campus(name='campus' required)
+      option(disabled='' selected='' value='')  ----- 
+      option(value='Başkanlık') Başkanlık
+      option(value='Beşevler') Beşevler
+      option(value='Saray') Saray
+      option(value='Küçükçekmece') Küçükçekmece
+    br
+    br
+    input(type='submit' value='Submit')
+
+  include ../public/javascripts/forms.pug
+div(id="foot")
+  p Türkiye Atom Enerjisi Kurumu 2020 ©

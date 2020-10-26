@@ -1,0 +1,39 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  meta(base href="/")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+  title Taek IT Envanter Sistemi
+
+  include ../public/javascripts/scripts.pug
+
+  script.
+    window.onload = function() {
+      var q = document.getElementById('m2').innerHTML;
+      if (q == "Bu sayfaya erişiminiz yoktur" || q == "Yeterli Malzeme Yok"){
+        document.getElementById("htmsg2").style.display = "block";
+        document.getElementById("m2").style.display = "block";
+        }
+    }
+
+//------------------------------------------------------------------------------------------------------------------------
+body
+  include navbar.pug
+
+  div(id="htmsg2" onclick="this.style.display='none';")
+    p(id="m2") #{hata}
+
+  h1(id="mainhead") Anasayfa
+  
+  div(class="buttonmain")
+    a(href='/depot')
+      button(id="left-container" ) Depodaki Malzeme
+    a(href='/list')
+      button(id="right-container") Kullanımdaki Malzeme
+
+  include ../public/javascripts/forms.pug
+  div(id="foot")
+    p Türkiye Atom Enerjisi Kurumu 2020 ©

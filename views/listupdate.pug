@@ -1,0 +1,96 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  title Taek IT Envanter Sistemi
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='icon' type='image/png' href='/images/favicon.ico')
+
+  include ../public/javascripts/scripts.pug
+
+  script.
+    window.onload = function() {
+    var ques = document.getElementById('TxT').innerHTML;
+    var ant = ques.substring(3, ques.length - 4);
+    var ent = JSON.parse(ant);
+    document.getElementById('log').ID.value = ent.ID;
+    document.getElementById('log').pType.value = ent.pType;
+    document.getElementById('log').pName.value = ent.pName;
+    document.getElementById('log').pBrand.value = ent.pBrand;
+    document.getElementById('log').responsible.value = ent.responsible;
+    document.getElementById('log').Date.value = ent.Date;
+    document.getElementById('log').Detail.value = ent.Detail;
+    document.getElementById('log').garanti_start.value = ent.garanti_start;
+    document.getElementById('log').garanti_end.value = ent.garanti_end;
+    document.getElementById('log').unit.value = ent.Unit;
+    document.getElementById('log').campus.value = ent.Campus;
+    if(ent.active==1){
+      document.getElementById('log').active.checked = true;
+      }
+    }
+
+//------------------------------------------------------------------------------------------------------------------------
+body
+  include navbar.pug
+
+  h1(id="mainhead2") Nesne Güncelleme Formu
+
+  form(id="log" method='post' action='/listupdater')
+    input(type='text' name='ID' placeholder= " ID... " readonly disabled)
+    br
+    br
+    input(type='text' name='pType' placeholder=" Türü... " readonly required)
+    br
+    br
+    input(type='text' name='pBrand' placeholder=" Marka... " readonly required)
+    br
+    br
+    input(type='text' name='pName' placeholder=" Model... " readonly required)
+    br
+    br
+    input(type='text' name='responsible' placeholder=" Teslim Edilen... " required)
+    br
+    br
+    label(for='Date') Alım Tarihi
+    br
+    input(type='date' name='Date' placeholder=" Tarih... " min="1900-01-01" max="2999-12-31" required)
+    br
+    br
+    textarea(type='text' name='Detail' placeholder=" Detay... ")
+    br
+    br
+    label(for='garanti_start') Garanti Başlama
+    br
+    input(type='date' name='garanti_start' placeholder=" Garanti Başlama... " min="1900-01-01" max="2999-12-31" required)
+    br
+    br
+    label(for='garanti_end') Garanti Bitiş
+    br
+    input(type='date' name='garanti_end' placeholder=" Garanti Bitiş... " min="1900-01-01" max="2999-12-31" required)
+    br
+    br
+    input(type='text' name='unit' placeholder=" Birim... " required)
+    br
+    br
+    label(for='campus') Yerleşke
+    br
+    select#campus(name='campus' required)
+      option(disabled='' selected='' value='')  ----- 
+      option(value='Başkanlık') Başkanlık
+      option(value='Beşevler') Beşevler
+      option(value='Saray') Saray
+      option(value='Küçükçekmece') Küçükçekmece
+    br
+    br
+    label(for='active') Aktif : 
+    input(type='checkbox' name='active'  value=1 )
+    br
+    br
+    input(type='submit' value='Submit')
+
+  div(id="TxT")
+    p #{testObj}
+
+  include ../public/javascripts/forms.pug
+div(id="foot")
+  p Türkiye Atom Enerjisi Kurumu 2020 ©
