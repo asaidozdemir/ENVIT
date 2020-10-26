@@ -1,20 +1,20 @@
                                                        
-                 AAA                 SSSSSSSSSSSSSSS   
-                A:::A              SS:::::::::::::::S  
-               A:::::A            S:::::SSSSSS::::::S  
-              A:::::::A           S:::::S     SSSSSSS  
-             A:::::::::A          S:::::S              
-            A:::::A:::::A         S:::::S              
-           A:::::A A:::::A         S::::SSSS           
-          A:::::A   A:::::A         SS::::::SSSSS      
-         A:::::A     A:::::A          SSS::::::::SS    
-        A:::::AAAAAAAAA:::::A            SSSSSS::::S   
-       A:::::::::::::::::::::A                S:::::S  
-      A:::::AAAAAAAAAAAAA:::::A               S:::::S  
-     A:::::A             A:::::A  SSSSSSS     S:::::S  
-    A:::::A               A:::::A S::::::SSSSSS:::::S  
-   A:::::A                 A:::::AS:::::::::::::::SS   
-  AAAAAAA                   AAAAAAASSSSSSSSSSSSSSS     
+                   AAA                 SSSSSSSSSSSSSSS   
+                  A:::A              SS:::::::::::::::S  
+                 A:::::A            S:::::SSSSSS::::::S  
+                A:::::::A           S:::::S     SSSSSSS  
+               A:::::::::A          S:::::S              
+              A:::::A:::::A         S:::::S              
+             A:::::A A:::::A         S::::SSSS           
+            A:::::A   A:::::A         SS::::::SSSSS      
+           A:::::A     A:::::A          SSS::::::::SS    
+          A:::::AAAAAAAAA:::::A            SSSSSS::::S   
+         A:::::::::::::::::::::A                S:::::S  
+        A:::::AAAAAAAAAAAAA:::::A               S:::::S  
+       A:::::A             A:::::A  SSSSSSS     S:::::S  
+      A:::::A               A:::::A S::::::SSSSSS:::::S  
+     A:::::A                 A:::::AS:::::::::::::::SS   
+    AAAAAAA                   AAAAAAASSSSSSSSSSSSSSS     
                                                        
 
 
@@ -57,8 +57,9 @@ Programın çalışması için gerekli uygulamalar:
 
     npm install pm2@latest -g
 
-    Komutunu yazmanız yeterli olacaktır.
-    Ayrıntılı bilgi için
+   Komutunu yazmanız yeterli olacaktır.
+   Ayrıntılı bilgi için
+    
     https://pm2.keymetrics.io/ 
 
 
@@ -126,13 +127,13 @@ Gerekli Tablolar
 
   **//Durdurma//**
 
-    Eğer sistemde CMD üzerinde  " node app.js "  komutu ile başlatıldı ise CTRL+C kombinasyonu ile durdurulabilir
-    Eğer sistemde CMD üzerinde  " pm2 start app.js "  komutu ile başlatıldı ise  " pm2 stop app.js"  ile durdurulabilir. (Not bu komutu uygulamak için doğru adreste olduğunuza emin olun)
+   Eğer sistemde CMD üzerinde  " node app.js "  komutu ile başlatıldı ise CTRL+C kombinasyonu ile durdurulabilir
+   Eğer sistemde CMD üzerinde  " pm2 start app.js "  komutu ile başlatıldı ise  " pm2 stop app.js"  ile durdurulabilir. (Not bu komutu uygulamak için doğru adreste olduğunuza emin olun)
 
   **//Sıfırlama//**
 
-    Eğer sistemdeki veriler sıfırlanmak istenirse önce MySQL Workbench üzerinden tüm satırlar silinmeli sonra tablo ayarlarından AUTO_INCREMENT ayarı "1" e getirilmelidir. Bu sayede ID numaraları da sıfırlanmış olur.
-    (Veya SQL tabloları silinip tekrar yüklenebilir)
+   Eğer sistemdeki veriler sıfırlanmak istenirse önce MySQL Workbench üzerinden tüm satırlar silinmeli sonra tablo ayarlarından AUTO_INCREMENT ayarı "1" e getirilmelidir. Bu sayede ID numaraları da sıfırlanmış olur.
+   (Veya SQL tabloları silinip tekrar yüklenebilir)
 
   **//Port//**
 
