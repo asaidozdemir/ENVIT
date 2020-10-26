@@ -112,7 +112,7 @@ app.listen(1453, '0.0.0.0', function () {
   console.log('127.0.0.1:1453');
   console.log(' ');
   console.log('Default user for web application is');
-  console.log('Username: ahmet');
-  console.log('Password: said');
+  console.log('Username: admin ');
+  console.log('Password: taek');
   console.log(' ');
 });
