@@ -177,7 +177,7 @@ Gerekli Tablolar
    
    veya
    
-     localhost:1453
+     localhost:1453/adminpanel
    
    gibi.
 
